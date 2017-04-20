@@ -17,9 +17,15 @@ get "/discover" do
   erb :discover
 end
 
-get "/sign-in" do
+get "/login" do
   erb :signin
 end
 
-get "sign-up"
+get "/signup" do
   erb :signup
+end
+
+# REDIR AFTER DISCOVER SEARCH
+get "/discover_redir" do
+  erb :discover_redir
+end
