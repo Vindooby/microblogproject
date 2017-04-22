@@ -7,11 +7,19 @@ require "sinatra/flash"
 set :database, "sqlite3:microblog.sqlite3"
 set :sessions, true
 
+def current_user
+	if session[:user_id]
+		User.find(session[:user_id])
+	end
+end
+
 get "/" do
   erb :home
 end
 
 get "/profile" do
+	 @user = User.find(session[:user_id])
+	 @posts = @user.posts
   erb :profile
 end
 
@@ -19,12 +27,25 @@ get "/compose" do
   erb :compose
 end
 
+post "/compose" do
+  @user= User.find(session[:user_id])
+  @user.posts << Post.create(title: params[:title], content: params[:content], user_id: @user.id)
+  redirect "/profile"
+end
+
 get "/discover" do
   erb :discover
 end
-
+get "/users" do
+  erb :users
+end
 get "/login" do
   erb :signin
+end
+
+get "/signout" do
+	session[:user_id] = nil
+  redirect "/"
 end
 
 get "/signup" do
@@ -47,7 +68,7 @@ post "/sign-in" do
     redirect "/login"
   end
 end
-# REDIR AFTER DISCOVER SEARCH
+
 get "/discover_redir" do
   erb :discover_redir
 end

@@ -1,0 +1,19 @@
+
+<div class="profile">
+  <strong>Name:</strong> <%= @user.fname + " " + @user.lname %>
+  <strong>Username:</strong> <%= @user.username %>
+  <strong>Email:</strong> <%= @user.email %>
+  <strong>Birthday</strong> <%= @user.birthday %>
+</div>
+
+<div class="signout">
+  <a href="/signout">Sign Out </a>
+  <a href="/accountsettings">Account Settings</a>
+  <a href="/compose">Compose</a>
+</div>
+
+<div class="posts">
+  <% @posts.each do |post| %>
+    <p><%= post.content %></p>
+  <% end %>
+</div>

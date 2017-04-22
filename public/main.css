@@ -1,10 +1,9 @@
 body {
-  background-image: url("background.jpg");
+  background-image: url("background.png");
   background-size: cover;
-
 }
 
-ul {
+#navbar {
     list-style-type: none;
     margin: 0;
     margin-left: 17.5%;
@@ -13,11 +12,11 @@ ul {
     background-color: #000000;
 }
 
-li {
+.navitem {
     float: left;
 }
 
-li a {
+.navlink {
     display: block;
     color: #FF2DAA;
     text-align: center;
@@ -25,16 +24,35 @@ li a {
     text-decoration: none;
 }
 
-
-li a:hover {
-    background-color: #111;
+.profile{
+  margin-left: 400px;
+  background-color: black;
+  font-size: 35px;
+  color: #FF2DAA
 }
+
 .signup {
   float:right;
+  color: #FF2DAA;
+  text-align: center;
+  text-decoration: none;
 }
 .logo {
   position: relative;
   height:250px;
   width:2px;
   margin-top: -3.25%;
+}
+
+#signupdiv{
+  color: #FF2DAA;
+}
+
+.si{
+  color: #FF2DAA;
+}
+.posts{
+  text-align: center;
+  color: #FF2DAA;
+  font-size: 25px;
 }
