@@ -14,13 +14,20 @@ def current_user
 end
 
 get "/" do
+	@posts = Post.all
+	@posts = @posts.reverse
   erb :home
 end
 
 get "/profile" do
+ if session[:user_id]
 	 @user = User.find(session[:user_id])
 	 @posts = @user.posts
-  erb :profile
+	 @posts = @posts.reverse
+   erb :profile
+ else
+	 erb :home
+ end
 end
 
 get "/compose" do
@@ -36,6 +43,13 @@ end
 get "/discover" do
   erb :discover
 end
+
+post "/discover" do
+	@users = User.all
+	@search = params[:searchname]
+	erb :discover_results
+end
+
 get "/users" do
   erb :users
 end
@@ -69,6 +83,20 @@ post "/sign-in" do
   end
 end
 
-get "/discover_redir" do
-  erb :discover_redir
+get "/accountsettings" do
+	@user = User.find(session[:user_id])
+	erb :accountsettings
+end
+
+post "/accountsettings" do
+	@user = User.find(session[:user_id])
+	@user.update(fname: params[:fname], lname: params[:lname], email: params[:email], birthday: params[:bday], username: params[:username], password: params[:password], bio_content: params[:bio_content])
+	redirect "/profile"
+end
+
+post "/deleteaccount" do
+	@user = User.find(session[:user_id])
+	@user.destroy
+	session[:user_id] = nil
+	redirect "/"
 end

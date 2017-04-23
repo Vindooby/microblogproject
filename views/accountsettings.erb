@@ -1,0 +1,18 @@
+<form class="asforms" action="/accountsettings" method="post">
+  <label for="firsname">First Name:</label>
+  <input type="text" name="fname" value= '<%= @user.fname %>'>
+  <label for="lastname">Last Name:</label>
+  <input type="text" name="lname" value= '<%= @user.lname %>'>
+  <label for="username">Username:</label>
+  <input type="text" name="username" value='<%= @user.username %>'>
+  <label for="email">Email:</label>
+  <input type="text" name="email" value='<%= @user.email %>'>
+  <label for="birthday">Birthday(mm/dd/yy):</label>
+  <input type="text" name="bday" value='<%= @user.birthday %>'>
+  <label for="bio">Bio:</label>
+  <input type="text" name="bio_content" value='<%= @user.bio_content %>'>
+  <input type="submit">
+</form>
+<form class="delete" action="/deleteaccount" method="post">
+  <input type="submit" name="" value="Delete Account">
+</form>
