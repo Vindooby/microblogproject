@@ -1,10 +1,12 @@
-
-<!--DISCOVER PAGE, SEARCH HERE DISPLAY RESULTS ON ANOTHER PAGE  -->
-<p>Who is in your circle?</p>
-
-<h3>Type In A Name To Find Your Fellow Blogger!</h3>
-<form method="post" action="/discover">
- <label for="name">Search User</label>
- <input type="text" name="[user]name">
- <input type="submit">
-</form>
+<div class="resultsheading">
+  Here are the people who match:
+</div>
+<% @users.each do |user| %>
+ <% if user.username == @search || user.fname == @search %>
+  <div>
+    <form class="" action="/discover_results" method="post">
+      <input type="submit" name="searcheduser" value="<%= user.username %>">
+    </form>
+  </div>
+  <% end %>
+<% end %>

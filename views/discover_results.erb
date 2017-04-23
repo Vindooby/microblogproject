@@ -1,13 +1,13 @@
-<div class="resultsheading">
-  Here are the people who match:
+<div class="profile">
+  <strong>Name:</strong> <%= @searcheduser.fname + " " + @searcheduser.lname %>
+  <strong>Username:</strong> <%= @searcheduser.username %>
+  <strong>Email:</strong> <%= @searcheduser.email %>
+  <strong>Birthday:</strong> <%= @searcheduser.birthday %>
+  <strong>Bio:</strong> <%= @searcheduser.bio_content %>
 </div>
 
-<% @users.each do |user| %>
- <% if user.username == @search || user.fname == @search %>
-  <div>
-    <form>
-      <input type="radio" name="searcheduser"><label> <%= user.username %> </label>
-    </form>
-  </div>
-  <% end %>
-<% end %>
+<div class="posts">
+    <% @posts.each do |post| %>
+      <p><%= post.content %></p>
+    <% end %>
+</div>

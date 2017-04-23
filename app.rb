@@ -47,11 +47,19 @@ end
 post "/discover" do
 	@users = User.all
 	@search = params[:searchname]
+	erb :discover_redir
+end
+
+post "/discover_results" do
+	@searcheduser = User.where(username: params[:searcheduser]).first
+	@posts = @searcheduser.posts
+	@posts = @posts.reverse
 	erb :discover_results
 end
 
 get "/users" do
-  erb :users
+	@users = User.all
+	erb :users
 end
 get "/login" do
   erb :signin
