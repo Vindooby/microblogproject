@@ -8,6 +8,7 @@
 
 <div class="posts">
     <% @posts.each do |post| %>
+      <p class= "title"><%= post.title %></p>
       <p><%= post.content %></p>
     <% end %>
 </div>

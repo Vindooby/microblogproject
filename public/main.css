@@ -53,7 +53,27 @@ body {
   color: #FF2DAA;
 }
 .posts{
+  margin-left: 300px;
+  display: inline-block;
   text-align: center;
   color: #FF2DAA;
   font-size: 25px;
+  /*background-color: black;*/
+}
+.homeposts{
+  display: inline-block;
+  border-style: solid;
+  border-color: #FF2DAA;
+  margin-left: 650px;
+}
+/*.title{
+  text-decoration: underline;
+  padding-right: 400px;
+}*/
+.signout{
+  display: inline-block;
+  color: #FF2DAA;
+  float: left;
+  padding: 14px 16px;
+  text-decoration: none;
 }

@@ -1,9 +1,10 @@
-
-<% @posts.each do |post| %>
- <div>
-   <p> Title: <%= post.title %> </p>
-   <p> Content: <%= post.content %> </p>
-   <br>
-   <br>
+<div class="homeposts">
+  <% @posts.each do |post| %>
+    <div>
+      <p> Title: <%= post.title %> </p>
+      <p> Content: <%= post.content %> </p>
+      <br>
+      <br>
+    </div>
+  <% end %>
 </div>
-<% end %>

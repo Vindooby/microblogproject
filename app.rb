@@ -14,6 +14,7 @@ def current_user
 end
 
 get "/" do
+	@users = User.all
 	@posts = Post.all
 	@posts = @posts.reverse
   erb :home
@@ -105,6 +106,21 @@ end
 post "/deleteaccount" do
 	@user = User.find(session[:user_id])
 	@user.destroy
+	@posts = Post.where(user_id: session[:user_id])
+	@posts.each do |post|
+		post.destroy
+	end
 	session[:user_id] = nil
 	redirect "/"
+end
+
+get "/destroyall" do
+	@users= User.all
+	@posts= Post.all
+	@users.each do |user|
+		user.destroy
+	end
+	@posts.each do |post|
+		post.destroy
+	end
 end

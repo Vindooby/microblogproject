@@ -7,14 +7,16 @@
   <strong>Bio:</strong> <%= @user.bio_content %>
 </div>
 
-<div class="signout">
-  <a href="/signout">Sign Out </a>
-  <a href="/accountsettings">Account Settings</a>
-  <a href="/compose">Compose</a>
+<div>
+  <a class= "signout" href="/signout">Sign Out </a>
+  <a class= "signout" href="/accountsettings">Account Settings</a>
+  <a class= "signout" href="/compose">Compose</a>
 </div>
 
 <div class="posts">
     <% @posts.each do |post| %>
-      <p><%= post.content %></p>
+      <p class= "title">Title: <%= post.title %></p>
+      <p>Content: <%= post.content %></p>
+      <br>
     <% end %>
 </div>
